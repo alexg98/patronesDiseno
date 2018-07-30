@@ -31,7 +31,7 @@ abstract class Decorador extends Componente{
 }
 //Decorador desplazamiento
 class DecoradorConcretoA extends Decorador{
-	private String propiedadAñadida;
+	private String propiedadAnadida;
 
 	public DecoradorConcretoA(Componente componente){
 		super(componente);
@@ -39,7 +39,7 @@ class DecoradorConcretoA extends Decorador{
 
 	public void operacion(){
 		super.operacion();
-		this.propiedadAñadida = "Nueva propiedad";
+		this.propiedadAnadida = "Nueva propiedad";
 		System.out.println("DecoradorConcretoA.operacion()");
 	}
 }
@@ -51,11 +51,11 @@ class DecoradorConcretoB extends Decorador{
 
 	public void operacion(){
 		super.operacion();
-		comportamientoAñadido();
+		comportamientoAnadido();
 		System.out.println("DecoradorConcretoB.operacion()");
 	}
 
-	public void comportamientoAñadido(){
+	public void comportamientoAnadido(){
 		System.out.println("Comportamiento B añadido");
 	}
 }
