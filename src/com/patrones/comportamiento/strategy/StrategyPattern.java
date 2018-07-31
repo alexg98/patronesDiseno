@@ -102,6 +102,7 @@ class StrategyB implements Strategy{
  * @author alexg
  *
  */
+@FunctionalInterface
 interface PaymentStrategy {
 
     double pay(double amount);
@@ -115,5 +116,5 @@ interface PaymentStrategy {
         double serviceCharge = 5.00;
         double creditCardFee = 10.00;
         return amount -> amount + serviceCharge + creditCardFee;
-    }
+    }    
 }
