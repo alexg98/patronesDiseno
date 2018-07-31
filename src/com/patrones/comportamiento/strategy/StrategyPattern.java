@@ -1,4 +1,8 @@
 package com.patrones.comportamiento.strategy;
+
+import java.util.Arrays;
+import java.util.List;
+
 /*
  * El patrón Estrategia (Strategy) es un patrón de diseño para el desarrollo de software. 
  * Se clasifica como patrón de comportamiento porque determina cómo se debe realizar el 
@@ -29,7 +33,32 @@ public class StrategyPattern {
 		 * Estrategia B
 		 * Estrategia A
 		 **/
+		
+		
+		/**
+		 * Usando Lamdas
+		 */
+		List<Strategy2> strategies = 
+				Arrays.asList(
+						() -> System.out.println("Perform task a day before deadline!"),
+						() -> System.out.println("Perform task now!")
+				);
+
+		strategies.forEach((elem) -> elem.performTask());
+		
+		
+		double price = 100;
+
+        PaymentStrategy paymentStratgy = PaymentStrategy.cashPayment();
+        System.out.println("Cash Price: - " + paymentStratgy.pay(price));
+
+        paymentStratgy = PaymentStrategy.creditCardPayment();
+        System.out.println("Credit Card Price: - " + paymentStratgy.pay(price));
 	}
+}
+
+interface Strategy2{
+	void performTask();
 }
 
 class Context {
@@ -67,4 +96,24 @@ class StrategyB implements Strategy{
 	public void behaviour() {
 		System.out.println("Estrategia B");
 	}
+}
+/**
+ * Patron estrategia usando programacion funcional Lambdas Java 8
+ * @author alexg
+ *
+ */
+interface PaymentStrategy {
+
+    double pay(double amount);
+
+    static PaymentStrategy cashPayment(){
+        double serviceCharge = 5.00;
+        return amount -> amount + serviceCharge;
+    }
+
+    static PaymentStrategy creditCardPayment(){
+        double serviceCharge = 5.00;
+        double creditCardFee = 10.00;
+        return amount -> amount + serviceCharge + creditCardFee;
+    }
 }
