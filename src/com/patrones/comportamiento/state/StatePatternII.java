@@ -1,6 +1,6 @@
 package com.patrones.comportamiento.state;
 
-interface State {
+@FunctionalInterface interface State {
 	public void doAction(Context context);
 }
 
@@ -51,12 +51,10 @@ public class StatePatternII {
 
 		StartState startState = new StartState();
 		startState.doAction(context);
-
 		System.out.println(context.getState().toString());
 
 		StopState stopState = new StopState();
 		stopState.doAction(context);
-
 		System.out.println(context.getState().toString());
 	}
 }

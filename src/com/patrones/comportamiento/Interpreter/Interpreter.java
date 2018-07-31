@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 /**
- * El interpreter es un patrón de diseño que, dado un lenguaje, define una representación para 
- * su gramática junto con un intérprete del lenguaje.
+ * El interpreter es un patron de dise�o que, dado un lenguaje, define una representacion para 
+ * su gramati junto con un intérprete del lenguaje.
  * Se usa para definir un lenguaje para representar expresiones regulares que representen cadenas a 
  * buscar dentro de otras cadenas. Además, en general, para definir un lenguaje que permita 
  * representar las distintas instancias de una familia de problemas.

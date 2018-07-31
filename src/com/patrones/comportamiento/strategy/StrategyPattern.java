@@ -44,16 +44,7 @@ public class StrategyPattern {
 						() -> System.out.println("Perform task now!")
 				);
 
-		strategies.forEach((elem) -> elem.performTask());
-		
-		
-		double price = 100;
-
-        PaymentStrategy paymentStratgy = PaymentStrategy.cashPayment();
-        System.out.println("Cash Price: - " + paymentStratgy.pay(price));
-
-        paymentStratgy = PaymentStrategy.creditCardPayment();
-        System.out.println("Credit Card Price: - " + paymentStratgy.pay(price));
+		strategies.forEach((elem) -> elem.performTask());		
 	}
 }
 
@@ -96,25 +87,4 @@ class StrategyB implements Strategy{
 	public void behaviour() {
 		System.out.println("Estrategia B");
 	}
-}
-/**
- * Patron estrategia usando programacion funcional Lambdas Java 8
- * @author alexg
- *
- */
-@FunctionalInterface
-interface PaymentStrategy {
-
-    double pay(double amount);
-
-    static PaymentStrategy cashPayment(){
-        double serviceCharge = 5.00;
-        return amount -> amount + serviceCharge;
-    }
-
-    static PaymentStrategy creditCardPayment(){
-        double serviceCharge = 5.00;
-        double creditCardFee = 10.00;
-        return amount -> amount + serviceCharge + creditCardFee;
-    }    
 }
